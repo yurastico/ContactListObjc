@@ -6,7 +6,7 @@
 //
 
 #import "ContactListViewController.h"
-
+#import "ViewController.h"
 @interface ContactListViewController ()
 
 @end
@@ -16,6 +16,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (ContactListViewController *)init {
+    self = [ super init ];
+    UIBarButtonItem *formButtom = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showForm)];
+    self.navigationItem.rightBarButtonItem = formButtom;
+    self.navigationItem.title = @"Contacts";
+     
+    return self;
+}
+
+-(void) showForm {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:NULL];
+    UIViewController *formViewController = [storyboard instantiateViewControllerWithIdentifier:@"FormView"];
+    [self.navigationController pushViewController:formViewController animated:YES];
 }
 
 /*

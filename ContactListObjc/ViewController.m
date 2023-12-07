@@ -12,6 +12,16 @@
 @end
 
 @implementation ViewController
+// pode retornar qualuqer coisa que eh pai, uiviewcontroller, nscoder etc, id == NSOBject *
+- (id)initWithCoder: (NSCoder *) aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Adicionar" style:UIBarButtonItemStylePlain target:self action:@selector(add)];
+        self.navigationItem.rightBarButtonItem = button;
+        self.navigationItem.title = @"New contact";
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,6 +35,8 @@
     contact.email = self.email.text;
     contact.website = self.website.text;
     contact.phone = self.phone.text;
+    
+    [self.navigationController popViewControllerAnimated:YES];
     
     NSLog(@"clicou %@",[self.name text]);
 }
