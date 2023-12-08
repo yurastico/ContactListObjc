@@ -14,6 +14,7 @@
 @property IBOutlet UITextField *email;
 @property IBOutlet UITextField *phone;
 @property IBOutlet UITextField *website;
+@property NSMutableArray *contacts;
 
 @end
 

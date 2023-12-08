@@ -36,6 +36,8 @@
     contact.website = self.website.text;
     contact.phone = self.phone.text;
     
+    [self.contacts addObject:contact];
+    
     [self.navigationController popViewControllerAnimated:YES];
     
     NSLog(@"clicou %@",[self.name text]);

@@ -9,5 +9,9 @@
 
 @implementation Contact
 
+- (NSString *)description {
+    NSString *data = [NSString stringWithFormat: @"Name: %@ Address: %@ E-mail: %@ Website: %@ Phone: %@ ",self.name,self.address,self.email,self.website,self.phone];
+    return data;
+}
 
 @end

@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ContactListViewController : UITableViewController
-
+@property NSMutableArray *contacts;
 @end
 
 NS_ASSUME_NONNULL_END
