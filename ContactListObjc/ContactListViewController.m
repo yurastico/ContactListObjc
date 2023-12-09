@@ -26,15 +26,34 @@
     self.navigationItem.rightBarButtonItem = formButtom;
     self.navigationItem.title = @"Contacts";
     self.dao = [ContactDao contactDaoInstance];
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
      
     return self;
 }
 
+-(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        Contact *contact = [self.dao contactOfIndex:indexPath.row];
+        [self.dao removeContact: contact];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedContact = [self.dao contactOfIndex:indexPath.row];
+    [self showForm];
+}
+
 -(void) showForm {
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:NULL];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *formViewController = [storyboard instantiateViewControllerWithIdentifier:@"FormView"];
     //formViewController.dao = self.dao;
+    if (self.selectedContact) {
+        formViewController.contact = self.selectedContact;
+    }
+    self.selectedContact = nil;
     [self.navigationController pushViewController:formViewController animated:YES];
 }
 

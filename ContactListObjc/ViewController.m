@@ -16,9 +16,8 @@
 - (id)initWithCoder: (NSCoder *) aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Adicionar" style:UIBarButtonItemStylePlain target:self action:@selector(add)];
-        self.navigationItem.rightBarButtonItem = button;
-        self.navigationItem.title = @"New contact";
+       
+        
         self.dao = [ContactDao contactDaoInstance];
     }
     return self;
@@ -26,22 +25,51 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIBarButtonItem *button = nil;
+    if (self.contact) {
+        button = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action: @selector(update)];
+        self.navigationItem.title = @"Edit contact";
+    } else {
+        button = [[UIBarButtonItem alloc] initWithTitle:@"Adicionar" style:UIBarButtonItemStylePlain target:self action:@selector(add)];
+        self.navigationItem.title = @"New contact";
+    }
+    
+   
+    self.navigationItem.rightBarButtonItem = button;
+    
+    if (self.contact) {
+        self.name.text = self.contact.name;
+        self.email.text = self.contact.email;
+        self.address.text = self.contact.address;
+        self.website.text = self.contact.website;
+        self.phone.text = self.contact.phone;
+    }
     // Do any additional setup after loading the view.
 }
 
--(IBAction) add {
-    Contact *contact = [Contact new];
-    contact.name = self.name.text;
-    contact.address = self.address.text;
-    contact.email = self.email.text;
-    contact.website = self.website.text;
-    contact.phone = self.phone.text;
+-(void) add {
+    self. contact = [Contact new];
+    [self getFormData];
     
-    [self.dao addContact:contact];
+    [self.dao addContact:self.contact];
     
     [self.navigationController popViewControllerAnimated:YES];
     
     NSLog(@"clicou %@",[self.name text]);
+}
+
+-(void) update {
+    [self getFormData];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)getFormData {
+    self.contact.name = self.name.text;
+    self.contact.address = self.address.text;
+    self.contact.email = self.email.text;
+    self.contact.website = self.website.text;
+    self.contact.phone = self.phone.text;
 }
 
 @end

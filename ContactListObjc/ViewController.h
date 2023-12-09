@@ -15,6 +15,7 @@
 @property IBOutlet UITextField *phone;
 @property IBOutlet UITextField *website;
 @property ContactDao *dao;
+@property Contact *contact;
 
 @end
 

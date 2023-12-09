@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ContactListViewController : UITableViewController
 
 @property ContactDao *dao ;
+@property Contact *selectedContact;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSInteger) total;
 -(Contact *) contactOfIndex:(NSInteger) index;
 +(ContactDao *) contactDaoInstance;
+-(void) removeContact: (Contact *) contact;
 
 @end
 

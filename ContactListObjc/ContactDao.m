@@ -24,10 +24,13 @@ static ContactDao *defaultDao = nil;
         defaultDao = [ContactDao new];
     }
     return defaultDao;
-}
+} 
 
 - (void)addContact:(Contact *)contact {
     [self.contacts addObject:contact];
+}
+- (void)removeContact:(Contact *)contact {
+    [self.contacts removeObject:contact];
 }
 
 -(NSInteger)total {
