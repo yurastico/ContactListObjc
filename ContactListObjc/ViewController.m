@@ -53,8 +53,9 @@
     [self getFormData];
     
     [self.dao addContact:self.contact];
-    
     [self.navigationController popViewControllerAnimated:YES];
+    [self.delegate contactCreated: self.contact];
+    
     
     NSLog(@"clicou %@",[self.name text]);
 }
@@ -62,6 +63,7 @@
 -(void) update {
     [self getFormData];
     [self.navigationController popViewControllerAnimated:YES];
+    [self.delegate  contactUpdated: self.contact];
 }
 
 -(void)getFormData {

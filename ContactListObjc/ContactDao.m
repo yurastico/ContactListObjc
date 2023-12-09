@@ -41,4 +41,8 @@ static ContactDao *defaultDao = nil;
     return self.contacts[index];
 }
 
+- (NSInteger)indexOfContact:(Contact *)contact {
+    return [self.contacts indexOfObject:contact];
+}
+
 @end

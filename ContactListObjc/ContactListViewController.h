@@ -7,13 +7,15 @@
 
 #import <UIKit/UIKit.h>
 #import "ContactDao.h"
-
+#import "ViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ContactListViewController : UITableViewController
+@interface ContactListViewController : UITableViewController<FormViewControllerDelegate>
 
 @property ContactDao *dao ;
 @property Contact *selectedContact;
+@property NSInteger selectedIndex;
+
 @end
 
 NS_ASSUME_NONNULL_END

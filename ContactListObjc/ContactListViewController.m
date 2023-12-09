@@ -27,6 +27,7 @@
     self.navigationItem.title = @"Contacts";
     self.dao = [ContactDao contactDaoInstance];
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.selectedIndex = -1;
      
     return self;
 }
@@ -54,6 +55,7 @@
         formViewController.contact = self.selectedContact;
     }
     self.selectedContact = nil;
+    formViewController.delegate  = self;
     [self.navigationController pushViewController:formViewController animated:YES];
 }
 
@@ -89,6 +91,26 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [self.tableView reloadData];
+}
+
+- (void) contactUpdated: (Contact *) contact {
+    self.selectedIndex = [self.dao indexOfContact: contact];
+}
+
+- (void) contactCreated: (Contact *) contact {
+    self.selectedIndex = [self.dao indexOfContact: contact];
+    NSString *message = [NSString stringWithFormat:@"Contact: %@ created!",contact.name];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Contact added!" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.selectedIndex inSection:0];
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+    self.selectedIndex = -1;
 }
 
 @end
