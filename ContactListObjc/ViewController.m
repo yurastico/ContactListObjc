@@ -19,6 +19,7 @@
         UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Adicionar" style:UIBarButtonItemStylePlain target:self action:@selector(add)];
         self.navigationItem.rightBarButtonItem = button;
         self.navigationItem.title = @"New contact";
+        self.dao = [ContactDao contactDaoInstance];
     }
     return self;
 }
@@ -36,7 +37,7 @@
     contact.website = self.website.text;
     contact.phone = self.phone.text;
     
-    [self.contacts addObject:contact];
+    [self.dao addContact:contact];
     
     [self.navigationController popViewControllerAnimated:YES];
     

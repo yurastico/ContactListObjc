@@ -25,7 +25,7 @@
     UIBarButtonItem *formButtom = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showForm)];
     self.navigationItem.rightBarButtonItem = formButtom;
     self.navigationItem.title = @"Contacts";
-    self.contacts = [NSMutableArray new];
+    self.dao = [ContactDao contactDaoInstance];
      
     return self;
 }
@@ -34,7 +34,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:NULL];
     ViewController *formViewController = [storyboard instantiateViewControllerWithIdentifier:@"FormView"];
-    formViewController.contacts = self.contacts;
+    //formViewController.dao = self.dao;
     [self.navigationController pushViewController:formViewController animated:YES];
 }
 
@@ -49,7 +49,7 @@
 */
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.contacts.count;
+    return [self.dao total];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -63,7 +63,7 @@
     }
     
    
-    Contact *contact = self.contacts[indexPath.row];
+    Contact *contact = [self.dao contactOfIndex:indexPath.row];
     cell.textLabel.text = contact.name;
     return cell;
 }

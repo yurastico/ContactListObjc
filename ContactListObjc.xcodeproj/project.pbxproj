@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5279C032B2506850019A3D0 /* ContactDao.m in Sources */ = {isa = PBXBuildFile; fileRef = C5279C022B2506850019A3D0 /* ContactDao.m */; };
 		C52FE0382B21ADC90071D7CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C52FE0372B21ADC90071D7CE /* AppDelegate.m */; };
 		C52FE03B2B21ADC90071D7CE /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C52FE03A2B21ADC90071D7CE /* SceneDelegate.m */; };
 		C52FE03E2B21ADC90071D7CE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C52FE03D2B21ADC90071D7CE /* ViewController.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C5279C012B2506850019A3D0 /* ContactDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactDao.h; sourceTree = "<group>"; };
+		C5279C022B2506850019A3D0 /* ContactDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactDao.m; sourceTree = "<group>"; };
 		C52FE0332B21ADC90071D7CE /* ContactListObjc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactListObjc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52FE0362B21ADC90071D7CE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C52FE0372B21ADC90071D7CE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				C52FE0372B21ADC90071D7CE /* AppDelegate.m */,
 				C52FE0392B21ADC90071D7CE /* SceneDelegate.h */,
 				C5E10BCB2B21B80D00FBBC2C /* ContactListViewController.h */,
+				C5279C012B2506850019A3D0 /* ContactDao.h */,
+				C5279C022B2506850019A3D0 /* ContactDao.m */,
 				C5E10BCC2B21B80D00FBBC2C /* ContactListViewController.m */,
 				C52FE03A2B21ADC90071D7CE /* SceneDelegate.m */,
 				C52FE03C2B21ADC90071D7CE /* ViewController.h */,
@@ -216,6 +221,7 @@
 				TargetAttributes = {
 					C52FE0322B21ADC90071D7CE = {
 						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1500;
 					};
 					C52FE0502B21ADCA0071D7CE = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -286,6 +292,7 @@
 				C52FE0442B21ADC90071D7CE /* ContactListObjc.xcdatamodeld in Sources */,
 				C5E10BCA2B21B4D100FBBC2C /* Contact.m in Sources */,
 				C52FE03B2B21ADC90071D7CE /* SceneDelegate.m in Sources */,
+				C5279C032B2506850019A3D0 /* ContactDao.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DWNX563SG6;
@@ -480,6 +488,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yurastico.ContactListObjc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -489,6 +499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DWNX563SG6;
@@ -507,6 +518,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yurastico.ContactListObjc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

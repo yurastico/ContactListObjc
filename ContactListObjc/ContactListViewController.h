@@ -6,11 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContactDao.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ContactListViewController : UITableViewController
-@property NSMutableArray *contacts;
+
+@property ContactDao *dao ;
 @end
 
 NS_ASSUME_NONNULL_END
